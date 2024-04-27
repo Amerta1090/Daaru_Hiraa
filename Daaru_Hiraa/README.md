@@ -7,11 +7,11 @@ composer install
 ```
 
 ```bash
-cp ..env.example .env
+cp .env.example .env
 ```
 
 ```bash
-php artusisan generate:key
+php artisan generate:key
 ```
 
 
