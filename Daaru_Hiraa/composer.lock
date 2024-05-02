@@ -6,6 +6,7 @@
     ],
     "content-hash": "e18017486dd04ff6005be82b4d15676d",
     "packages": [
+        {[]
         {
             "name": "anourvalar/eloquent-serialize",
             "version": "1.2.22",
