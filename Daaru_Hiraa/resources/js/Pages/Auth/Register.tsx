@@ -33,9 +33,23 @@ export default function Register() {
         <GuestLayout>
             <Head title="Register" />
 
-            <div className="w-1/2 h-[100vh] bg-white overflow-hidden flex items-center justify-center">
-                <div className="w-full sm:max-w-md mt-6 px-6 py-4 bg-white overflow-hidden sm:rounded-lg">
-                    <h1 className="mb-6 font-bold text-3xl">Sign Up</h1>
+            <div className="md:w-1/2 bg-white overflow-hidden flex items-center justify-center border rounded-lg shadow-xl md:h-[100vh] md:border-none sm:w-[500px] w-[350px]">
+                <div className="w-full md:max-w-md md:mt-6 px-6 py-4 overflow-hidden">
+                    <div className="flex sm:flex-col flex-wrap gap-3">
+                        <div className="md:hidden flex items-center justify-center my-4 flex-col">
+                            <img
+                                src={image}
+                                alt=""
+                                className="w-[45px] sm:w-[60px] flex"
+                            />
+                            <h1 className="hidden sm:font-bold sm:text-xl sm:flex sm:text-red-700">
+                                Welcome to Daaru Hiraa
+                            </h1>
+                        </div>
+                        <h1 className="mb-6 font-bold text-xl md:text-3xl flex items-end">
+                            Sign Up
+                        </h1>
+                    </div>
 
                     <form onSubmit={submit}>
                         <div>
@@ -126,13 +140,24 @@ export default function Register() {
                                 className="mt-2"
                             />
                         </div>
-                        <div className="w-full mt-4">
-                            <PrimaryButton
-                                className="w-full flex justify-center shadow-xl"
-                                disabled={processing}
-                            >
-                                Register
-                            </PrimaryButton>
+                        <div className="flex items-center justify-between gap-2 flex-col sm:flex-row">
+                            <div className="w-full mt-4">
+                                <PrimaryButton
+                                    className="w-full flex justify-center shadow-xl"
+                                    disabled={processing}
+                                >
+                                    Register
+                                </PrimaryButton>
+                            </div>
+
+                            <div className="w-full md:hidden sm:mt-3">
+                                <Link
+                                    href={route("login")}
+                                    className="w-full flex justify-center shadow-xl bg-slate-500  px-4 py-1 rounded-full text-white font-semibold"
+                                >
+                                    <span>Sign In</span>
+                                </Link>
+                            </div>
                         </div>
                         <div className="block mt-4">
                             <label className="flex items-center">
@@ -151,7 +176,7 @@ export default function Register() {
                     </form>
                 </div>
             </div>
-            <div className="w-1/2 bg-gray-500 shadow-md overflow-hidden h-[100vh] flex item-center justify-center items-center flex-col gap-10 image">
+            <div className="hidden md:w-1/2 md:bg-gray-800 overflow-hidden h-[100vh] md:flex md:item-center md:justify-center items-center flex-col gap-10 image ">
                 <img src={image} alt="" />
                 <h1 className="font-bold text-3xl text-white">
                     Welcome to Daaru Hiraa

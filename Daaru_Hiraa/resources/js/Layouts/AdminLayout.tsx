@@ -1,62 +1,67 @@
 import { useState, PropsWithChildren, ReactNode } from "react";
+import ApplicationLogo from "@/Components/ApplicationLogo";
 import Dropdown from "@/Components/Dropdown";
+import NavLink from "@/Components/NavLink";
 import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
 import { Link } from "@inertiajs/react";
 import { User } from "@/types";
-import image from "../../../assets/logo.png";
-import Sidebar from "@/Components/Sidebar";
-import { BellIcon } from "@heroicons/react/24/outline";
 
-export default function Authenticated({
+export default function AdminLayout({
     user,
     header,
     children,
-    title,
-}: PropsWithChildren<{ user: User; header?: ReactNode; title: string }>) {
+}: PropsWithChildren<{ user: User; header?: ReactNode }>) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] =
         useState(false);
+
     return (
-        <div className="bg-gray-200 flex flex-col">
-            <nav className="bg-white shadow-sm rounded-md mx-4 mt-3 py-1 fixed w-[99%] -left-2 ">
-                <div className="mx-auto px-4">
+        <div className="min-h-screen bg-gray-100">
+            <nav className="bg-white border-b border-gray-100">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between h-16">
                         <div className="flex">
                             <div className="shrink-0 flex items-center">
-                                <Link href="/" className="block w-9">
-                                    <img src={image} alt="" />
+                                <Link href="/">
+                                    <ApplicationLogo className="block h-9 w-auto fill-current text-gray-800" />
                                 </Link>
                             </div>
 
-                            <div className="hidden space-x-8 sm:-my-px sm:ms-5 sm:flex sm:justify-center sm:items-center">
-                                <h1 className="text-2xl font-bold text-gray-600">
-                                    {title}
-                                </h1>
+                            <div className="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                                <NavLink
+                                    href={route("dashboard")}
+                                    active={route().current("dashboard")}
+                                >
+                                    Dashboard
+                                </NavLink>
                             </div>
                         </div>
 
                         <div className="hidden sm:flex sm:items-center sm:ms-6">
                             <div className="ms-3 relative">
                                 <Dropdown>
-                                    <span className="flex rounded-md justify-center items-center gap-3">
-                                        <div className="flex flex-col items-end text-gray-600">
-                                            <p>{user.name}</p>
+                                    <Dropdown.Trigger>
+                                        <span className="inline-flex rounded-md">
+                                            <button
+                                                type="button"
+                                                className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150"
+                                            >
+                                                {user.name}
 
-                                            {/* Bell Icon */}
-                                            <div className="flex relative">
-                                                <BellIcon className="w-5" />
-                                                <span className="absolute flex h-2 w-2 -top-[1px] left-3">
-                                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-                                                    <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <span className="w-[1px] h-10 bg-gray-500"></span>
-                                        <Dropdown.Trigger>
-                                            <button className="w-9 h-9 rounded-full bg-pink-500 overflow-hidden flex items-center justify-center">
-                                                <img src={image} alt="" />
+                                                <svg
+                                                    className="ms-2 -me-0.5 h-4 w-4"
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 20 20"
+                                                    fill="currentColor"
+                                                >
+                                                    <path
+                                                        fillRule="evenodd"
+                                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                                        clipRule="evenodd"
+                                                    />
+                                                </svg>
                                             </button>
-                                        </Dropdown.Trigger>
-                                    </span>
+                                        </span>
+                                    </Dropdown.Trigger>
 
                                     <Dropdown.Content>
                                         <Dropdown.Link
@@ -127,8 +132,8 @@ export default function Authenticated({
                 >
                     <div className="pt-2 pb-3 space-y-1">
                         <ResponsiveNavLink
-                            href={route("home.index")}
-                            active={route().current("home.index")}
+                            href={route("dashboard")}
+                            active={route().current("dashboard")}
                         >
                             Dashboard
                         </ResponsiveNavLink>
@@ -160,14 +165,15 @@ export default function Authenticated({
                 </div>
             </nav>
 
-            <div className="flex flex-wrap pt-[82px] m-1">
-                <div className="hidden sm:flex">
-                    <Sidebar className="fixed top-22" />
-                </div>
-                <main className="flex-grow mt-2 mb-3 ps-[70px]">
-                    {children}
-                </main>
-            </div>
+            {header && (
+                <header className="bg-white shadow">
+                    <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                        {header}
+                    </div>
+                </header>
+            )}
+
+            <main>{children}</main>
         </div>
     );
 }
