@@ -9,7 +9,7 @@ const Piket = ({ auth }: PageProps) => {
             <Head title="Dashboard" />
 
             <div className="h-[calc(100vh-120px)] mx-auto px-2">
-                <h1>To Be Continued</h1>
+                To be continued
             </div>
         </AuthenticatedLayout>
     );

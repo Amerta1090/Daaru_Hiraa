@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\RollCallResource;
+use App\Models\RollCall;
 use App\Models\user;
 use App\Http\Requests\StoreuserRequest;
 use App\Http\Requests\UpdateuserRequest;
@@ -13,7 +15,14 @@ class UserController extends Controller
      */
     public function index()
     {
-        return inertia('Member/Index');
+        $query = RollCall::query();
+
+        $rollCalls = $query->paginate(10)->onEachSide(1);
+
+        return inertia('Member/Index', [
+            "rollCalls" => RollCallResource::collection($rollCalls),
+        ]);
+            // return inertia("Member/Index'");
     }
 
     /**
