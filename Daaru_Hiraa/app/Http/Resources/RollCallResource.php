@@ -18,7 +18,7 @@ class RollCallResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            // 'user'=> new User($this->user),
+            'user'=> new UserResource($this->user),
             'status'=> $this->status,
             'created_at'=> (new Carbon($this->created_at))->format('Y-m-d'),
             'due_date'=> (new Carbon($this->due_date))->format('Y-m-d'),

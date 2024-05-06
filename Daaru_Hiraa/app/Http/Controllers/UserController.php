@@ -16,13 +16,15 @@ class UserController extends Controller
     public function index()
     {
         $query = RollCall::query();
+        $userId = auth()->user()->id;
 
-        $rollCalls = $query->paginate(10)->onEachSide(1);
+        $rollCalls = $query->where('user_id', $userId)
+                            ->paginate(10)
+                            ->onEachSide(1);
 
         return inertia('Member/Index', [
             "rollCalls" => RollCallResource::collection($rollCalls),
         ]);
-            // return inertia("Member/Index'");
     }
 
     /**

@@ -1,8 +1,9 @@
-import { HomeIcon, BookOpenIcon } from "@heroicons/react/24/solid";
 import {
     BanknotesIcon,
-    BookmarkIcon,
+    QuestionMarkCircleIcon,
     CalendarDaysIcon,
+    BookOpenIcon,
+    HomeIcon,
 } from "@heroicons/react/24/outline";
 import { Link } from "@inertiajs/react";
 
@@ -80,7 +81,7 @@ const Sidebar = (props: Props) => {
                     route().current("home") ? "bg-black text-white" : ""
                 }`}
             >
-                <BookmarkIcon className="size-7 text-blue-white" />
+                <QuestionMarkCircleIcon className="size-7 text-blue-white" />
                 <p className="absolute top-2 bg-black w-[100px] rounded-lg flex justify-center items-center left-12 text-sm py-[2px] invisible group-hover:visible group-hover:text-white">
                     Panduan
                 </p>

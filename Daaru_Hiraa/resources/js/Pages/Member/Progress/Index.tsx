@@ -9,12 +9,7 @@ import PrimaryButton from "@/Components/PrimaryButton";
 import { useEffect, useState } from "react";
 import { count } from "console";
 
-type Props = {
-    rollCalls: any;
-};
-
-const Progress = ({ auth }: PageProps, props: Props) => {
-    const { rollCalls } = props;
+const Progress = ({ auth }: PageProps) => {
     const [surahs, setSurahs] = useState<any>([]);
     const [isLoading, setIsLoading] = useState(false);
 
