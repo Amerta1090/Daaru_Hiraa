@@ -2,15 +2,22 @@ import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { BanknotesIcon } from "@heroicons/react/24/outline";
 import { Head, Link } from "@inertiajs/react";
 import { PageProps } from "@/types";
+import { useEffect, useState } from "react";
 
 // type Props = {
 //     rollCalls: any;
 // };
 
-const Home = ({ auth }: PageProps, rollCalls: any) => {
-    // const { rollCalls } = props;
+const Home = ({ auth, rollCalls }: PageProps) => {
+    const [attendances, setAttendance] = useState<any>([]);
 
-    console.log(rollCalls);
+    useEffect(() => {
+        setAttendance(rollCalls);
+    }, [rollCalls]);
+
+    // console.log(attendances.data);
+    // console.log(auth.user.id);
+
     return (
         <AuthenticatedLayout user={auth.user} title="Dashboard">
             <Head title="Dashboard" />
@@ -55,7 +62,7 @@ const Home = ({ auth }: PageProps, rollCalls: any) => {
                                 <div className="bg-white shadow-sm sm:rounded-xl h-[250px] w-full px-2 py-1">
                                     {/* <pre>
                                         {JSON.stringify(
-                                            rollCalls,
+                                            attendances,
                                             undefined,
                                             2
                                         )}
@@ -75,103 +82,65 @@ const Home = ({ auth }: PageProps, rollCalls: any) => {
                                                         Name
                                                     </span>
                                                 </th>
-                                                <th className="py-3">
-                                                    <span className="flex items-center ">
-                                                        Status
-                                                    </span>
+                                                <th className="py-3 flex items-center justify-center">
+                                                    Status
                                                 </th>
                                                 <th className="py-3">
-                                                    <span className="flex items-center ">
+                                                    <span className="flex items-center justify-center">
                                                         Date
                                                     </span>
                                                 </th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr className="text-nowrap">
-                                                <td className="py-3">
-                                                    <span className="flex items-center  mx-2">
-                                                        1.
-                                                    </span>
-                                                </td>
+                                            {attendances.data?.length === 0 && (
+                                                <div className="flex items-center justify-center fixed  left-[32rem] bottom-[22rem]">
+                                                    <h1 className="font-semibold text-xl">
+                                                        Anda belum memiliki
+                                                        riwayat presensi
+                                                    </h1>
+                                                </div>
+                                            )}
 
-                                                <td className="py-3">
-                                                    Wahid Hasim S
-                                                </td>
-                                                <td className="py-3">
-                                                    <span className=" text-[#ECFFEE] py-1 px-2 rounded-lg bg-[#00B112]">
-                                                        HADIR
-                                                    </span>
-                                                </td>
-                                                <td className="py-3">
-                                                    <span className="flex items-center "></span>
-                                                </td>
-                                            </tr>
-                                            {/* {projects.data.map(
-                                                (project, index) => (
+                                            {/* DATA PRESENSI */}
+                                            {attendances.data?.map(
+                                                (
+                                                    attendance: any,
+                                                    index: any
+                                                ) => (
                                                     <tr
-                                                        className="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
+                                                        className="text-nowrap"
                                                         key={index}
                                                     >
-                                                        <td className="px-3 py-2">
-                                                            {project.id}
-                                                        </td>
-                                                        <td className="px-3 py-2">
-                                                            <img
-                                                                src={
-                                                                    project.img_path
-                                                                }
-                                                                alt=""
-                                                                style={{
-                                                                    width: 60,
-                                                                }}
-                                                            />
-                                                        </td>
-                                                        <td className="px-3 py-2">
-                                                            <Link
-                                                                className="hover:text-white hover:underline text-nowrap"
-                                                                href={route(
-                                                                    "project.show",
-                                                                    project.id
-                                                                )}
-                                                            >
-                                                                {project.name}
-                                                            </Link>
-                                                        </td>
-                                                        <td className="px-3 py-2">
-                                                            <span
-                                                                className={
-                                                                    "px-2 py-1 rounded text-white " +
-                                                                    PROJECT_STATUS_CLASS_MAP[
-                                                                        project
-                                                                            .status
-                                                                    ]
-                                                                }
-                                                            >
-                                                                {
-                                                                    PROJECT_STATUS_TEXT_MAP[
-                                                                        project
-                                                                            .status
-                                                                    ]
-                                                                }
+                                                        <td className="py-3">
+                                                            <span className="flex items-center mx-2">
+                                                                {index + 1}
                                                             </span>
                                                         </td>
-                                                        <td className="px-3 py-2">
-                                                            {project.created_at}
-                                                        </td>
-                                                        <td className="px-3 py-2">
-                                                            {project.due_date}
-                                                        </td>
-                                                        <td className="px-3 py-2">
+
+                                                        <td className="py-3">
                                                             {
-                                                                project
-                                                                    .createdby
+                                                                attendance.user
                                                                     .name
                                                             }
                                                         </td>
+                                                        <td className="py-3 flex items-center justify-center">
+                                                            <span className=" text-[#ECFFEE] py-1 px-2 rounded-lg bg-[#00B112]">
+                                                                {
+                                                                    attendance.status
+                                                                }
+                                                            </span>
+                                                        </td>
+                                                        <td className="py-3 ">
+                                                            <span className="flex items-center justify-center">
+                                                                {
+                                                                    attendance.created_at
+                                                                }
+                                                            </span>
+                                                        </td>
                                                     </tr>
                                                 )
-                                            )} */}
+                                            )}
                                         </tbody>
                                     </table>
                                     {/* <Pagination Links={projects.meta.links} /> */}
