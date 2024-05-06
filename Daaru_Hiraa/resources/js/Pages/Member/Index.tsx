@@ -4,19 +4,12 @@ import { Head, Link } from "@inertiajs/react";
 import { PageProps } from "@/types";
 import { useEffect, useState } from "react";
 
-// type Props = {
-//     rollCalls: any;
-// };
-
 const Home = ({ auth, rollCalls }: PageProps) => {
     const [attendances, setAttendance] = useState<any>([]);
 
     useEffect(() => {
         setAttendance(rollCalls);
     }, [rollCalls]);
-
-    // console.log(attendances.data);
-    // console.log(auth.user.id);
 
     return (
         <AuthenticatedLayout user={auth.user} title="Dashboard">
