@@ -44,4 +44,8 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function rollCalls(){
+        return $this->hasMany(RollCall::class);
+    }
 }

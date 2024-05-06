@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\RollCall;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -13,19 +14,19 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
+        
         User::factory()->create([
             'name' => 'Test User',
-            'email' => '    @gmail.com',
+            'email' => 'admin@gmail.com',
             'role' => 'admin',
             'password' => '123',
         ]);
-
+        
         User::factory()->create([
             'name' => 'Hazz',
             'email' => 'user@gmail.com',
             'password' => '123',
         ]);
+        RollCall::factory(20)->create();
     }
 }

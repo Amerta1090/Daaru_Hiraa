@@ -153,7 +153,7 @@ export default function Register() {
                             <div className="w-full md:hidden sm:mt-3">
                                 <Link
                                     href={route("login")}
-                                    className="w-full flex justify-center shadow-xl bg-slate-500  px-4 py-1 rounded-full text-white font-semibold"
+                                    className="w-full flex justify-center shadow-xl bg-slate-500  px-4 py-1 rounded-xl text-white font-semibold"
                                 >
                                     <span>Sign In</span>
                                 </Link>
@@ -187,7 +187,7 @@ export default function Register() {
 
                     <Link
                         href={route("login")}
-                        className="rounded-full bg-white  px-3 py-1 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:hover:text-[#0969DA] dark:focus-visible:ring-white mt-5"
+                        className="rounded-xl bg-white  px-3 py-1 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:hover:text-[#0969DA] dark:focus-visible:ring-white mt-5"
                     >
                         Sign In
                     </Link>

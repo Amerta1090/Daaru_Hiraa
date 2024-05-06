@@ -17,7 +17,7 @@ export default function Authenticated({
         useState(false);
     return (
         <div className="bg-gray-200 flex flex-col">
-            <nav className="bg-white shadow-sm rounded-md mx-4 mt-3 py-1 fixed w-[99%] -left-2 ">
+            <nav className="bg-white shadow-sm rounded-lg mx-4 mt-3 py-1 fixed w-[99%] -left-2 ">
                 <div className="mx-auto px-4">
                     <div className="flex justify-between h-16">
                         <div className="flex">
@@ -160,11 +160,11 @@ export default function Authenticated({
                 </div>
             </nav>
 
-            <div className="flex flex-wrap pt-[82px] m-1">
+            <div className="flex flex-wrap pt-[82px] m-1 gap-5 me-5">
                 <div className="hidden sm:flex">
-                    <Sidebar className="fixed top-22" />
+                    <Sidebar className="fixed top-24 left-3" />
                 </div>
-                <main className="flex-grow mt-2 mb-3 ps-[70px]">
+                <main className="flex-grow mt-5 mb-3 ps-[72px]">
                     {children}
                 </main>
             </div>
