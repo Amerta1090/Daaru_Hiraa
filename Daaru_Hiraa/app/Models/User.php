@@ -48,4 +48,16 @@ class User extends Authenticatable
     public function rollCalls(){
         return $this->hasMany(RollCall::class);
     }
+
+    public function progress(){
+        return $this->hasMany(Progress::class);
+    }
+
+    public function pickets(){
+        return $this->hasMany(Picket::class);   
+    }
+
+    public function sholat(){
+        return $this->hasMany(Sholat::class);   
+    }
 }
