@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('progress', function (Blueprint $table) {
+        Schema::create('pickets', function (Blueprint $table) {
             $table->id();
+            $table->string('place');
             $table->date('date');
-            $table->string('surahName');
-            $table->string('information');
+            $table->longText('content');
+            $table->string('image');
             $table->timestamps();
-            $table->foreignId('users_id')->constrained('users')->cascadeOnDelete();
         });
     }
 
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('progress');
+        Schema::dropIfExists('pickets');
     }
 };
