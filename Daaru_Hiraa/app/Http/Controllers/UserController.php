@@ -18,9 +18,9 @@ class UserController extends Controller
         $query = RollCall::query();
         $userId = auth()->user()->id;
 
-        $rollCalls = $query->where('user_id', $userId)
-                            ->paginate(10)
-                            ->onEachSide(1);
+        $rollCalls = $query->where('user_id', $userId)->get();
+                            // ->paginate(10)
+                            // ->onEachSide(1);
 
         return inertia('Member/Index', [
             "rollCalls" => RollCallResource::collection($rollCalls),

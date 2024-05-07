@@ -18,7 +18,7 @@ class RollCallFactory extends Factory
     {
         return [
             'user_id' => 2,
-            'status' => fake()->randomElement(['pending', 'in_progress', 'completed']),
+            'status' => fake()->randomElement(['Hadir', 'Tidak Hardir']),
         ];
     }
 }
