@@ -1,15 +1,21 @@
-import { Fragment, PropsWithChildren } from 'react';
-import { Dialog, Transition } from '@headlessui/react';
+import {
+    Fragment,
+    PropsWithChildren,
+    useEffect,
+    useReducer,
+    useRef,
+} from "react";
+import { Dialog, Transition } from "@headlessui/react";
 
 export default function Modal({
     children,
     show = false,
-    maxWidth = '2xl',
+    maxWidth = "2xl",
     closeable = true,
     onClose = () => {},
 }: PropsWithChildren<{
     show: boolean;
-    maxWidth?: 'sm' | 'md' | 'lg' | 'xl' | '2xl';
+    maxWidth?: "sm" | "md" | "lg" | "xl" | "2xl";
     closeable?: boolean;
     onClose: CallableFunction;
 }>) {
@@ -20,11 +26,11 @@ export default function Modal({
     };
 
     const maxWidthClass = {
-        sm: 'sm:max-w-sm',
-        md: 'sm:max-w-md',
-        lg: 'sm:max-w-lg',
-        xl: 'sm:max-w-xl',
-        '2xl': 'sm:max-w-2xl',
+        sm: "sm:max-w-sm",
+        md: "sm:max-w-md",
+        lg: "sm:max-w-lg",
+        xl: "sm:max-w-xl",
+        "2xl": "sm:max-w-2xl",
     }[maxWidth];
 
     return (
@@ -34,6 +40,7 @@ export default function Modal({
                 id="modal"
                 className="fixed inset-0 flex overflow-y-auto px-4 py-6 sm:px-0 items-center z-50 transform transition-all"
                 onClose={close}
+                // ref={ref}
             >
                 <Transition.Child
                     as={Fragment}
@@ -57,7 +64,7 @@ export default function Modal({
                     leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                 >
                     <Dialog.Panel
-                        className={`mb-6 bg-white rounded-lg overflow-hidden shadow-xl transform transition-all sm:w-full sm:mx-auto ${maxWidthClass}`}
+                        className={`mb-6 bg-transparent rounded-lg overflow-hidden shadow-xl transform transition-all sm:w-full sm:mx-auto ${maxWidthClass}`}
                     >
                         {children}
                     </Dialog.Panel>
@@ -66,3 +73,34 @@ export default function Modal({
         </Transition>
     );
 }
+
+// type prorpsModal = {
+//     onClose: any;
+//     children: React.ReactNode;
+// };
+
+// function Modal(props: prorpsModal) {
+//     const { onClose, children } = props;
+//     const ref: any = useRef();
+//     useEffect(() => {
+//         const handleClickOutside = (e: any) => {
+//             if (ref.current && !ref.current.contains(e.target)) {
+//                 onClose();
+//             }
+//         };
+//         document.addEventListener("mousedown", handleClickOutside);
+//         return () => {
+//             document.removeEventListener("mousedown", handleClickOutside);
+//         };
+//     }, [onClose]);
+
+//     return (
+//         <div className="">
+//             <div className="" ref={ref}>
+//                 {children}
+//             </div>
+//         </div>
+//     );
+// }
+
+// export default Modal;

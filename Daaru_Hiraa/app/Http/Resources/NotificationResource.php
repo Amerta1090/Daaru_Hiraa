@@ -6,7 +6,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class RollCallResource extends JsonResource
+class NotificationResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -17,10 +17,15 @@ class RollCallResource extends JsonResource
     {
         return [
             'id' => $this->id,
+            'title' => $this->title,
+            'content' => $this->content,
+            'type' => $this->type,
+            'url' => $this->url,
+            'icon' => $this->icon,
             'user'=> new UserResource($this->user),
-            'status'=> $this->status,
-            'created_at'=> (new Carbon($this->created_at))->format('Y-m-d'),
-            'due_date'=> (new Carbon($this->due_date))->format('Y-m-d'),
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
+            'date'=> (new Carbon($this->due_date))->format('Y-m-d')
         ];
     }
 }

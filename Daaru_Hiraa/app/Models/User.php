@@ -48,6 +48,9 @@ class User extends Authenticatable
     public function rollCalls(){
         return $this->hasMany(RollCall::class);
     }
+    public function notifications(){
+        return $this->hasMany(Notification::class);
+    }
 
     public function progress(){
         return $this->hasMany(Progress::class);

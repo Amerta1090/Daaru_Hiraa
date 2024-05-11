@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\AnnouncementResource;
+use App\Http\Resources\NotificationResource;
 use App\Http\Resources\RollCallResource;
+use App\Models\Announcement;
+use App\Models\Notification;
 use App\Models\RollCall;
 use App\Models\user;
 use App\Http\Requests\StoreuserRequest;
@@ -16,14 +20,23 @@ class UserController extends Controller
     public function index()
     {
         $query = RollCall::query();
+        $notification = Notification::query();
+        $announcement = Announcement::query();
         $userId = auth()->user()->id;
 
+        
         $rollCalls = $query->where('user_id', $userId)->get();
-                            // ->paginate(10)
-                            // ->onEachSide(1);
+        $notifications = $notification->where('user_id', $userId)->get();
+        $announcements = $announcement->get();
+        // ->paginate(10)
+        // ->onEachSide(1);
 
+        
         return inertia('Member/Index', [
             "rollCalls" => RollCallResource::collection($rollCalls),
+            "notifications" => NotificationResource::collection($notifications),
+            "announcements" => AnnouncementResource::collection($announcements),
+            // dd(AnnouncementResource::collection($announcements)),
         ]);
     }
 

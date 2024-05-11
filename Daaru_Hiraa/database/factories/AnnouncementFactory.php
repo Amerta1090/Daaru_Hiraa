@@ -17,7 +17,10 @@ class AnnouncementFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'title' => $this->faker->sentence(),
+            'content' => $this->faker->paragraph(),
+            'published_at' => now(),
+            'image' => $this->faker->imageUrl(),
         ];
     }
 }

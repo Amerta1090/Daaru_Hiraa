@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\NotificationResource;
+use App\Models\Notification;
 use App\Models\user;
 use App\Http\Requests\StoreuserRequest;
 use App\Http\Requests\UpdateuserRequest;
@@ -13,7 +15,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return inertia('Admin/Index');
+        $notification = Notification::query();
+        $userId = auth()->user()->id;
+
+        
+        $notifications = $notification->where('user_id', $userId)->get();
+        
+        return inertia('Admin/Index', [
+            "notifications" => NotificationResource::collection($notifications),
+        ]);
     }
 
     /**

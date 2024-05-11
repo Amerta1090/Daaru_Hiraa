@@ -2,17 +2,14 @@ import AdminLayout from "@/Layouts/AdminLayout";
 import { Head } from "@inertiajs/react";
 import { PageProps } from "@/types";
 
-const Admin = ({ auth }: PageProps) => {
+const Admin = ({ auth, notifications }: PageProps) => {
     return (
         <AdminLayout
             user={auth.user}
-            header={
-                <h2 className="font-semibold text-xl text-gray-800 leading-tight">
-                    Dashboard
-                </h2>
-            }
+            title="Admin"
+            notifications={notifications}
         >
-            <Head title="Dashboard" />
+            <Head title="Admin Page" />
 
             <div className="py-12">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
