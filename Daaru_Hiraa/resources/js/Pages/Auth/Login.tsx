@@ -108,7 +108,7 @@ export default function Login({
                         <div className="flex items-center justify-between gap-2 flex-col sm:flex-row">
                             <div className="w-full mt-4">
                                 <PrimaryButton
-                                    className="w-full flex justify-center shadow-xl"
+                                    className="w-full flex justify-center shadow-xl  bg-primary hover:bg-slate-900"
                                     disabled={processing}
                                 >
                                     Log in
@@ -163,7 +163,7 @@ export default function Login({
 
                     <Link
                         href={route("register")}
-                        className="rounded-xl bg-white px-3 py-1 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:hover:text-[#0969DA] dark:focus-visible:ring-white mt-5"
+                        className="rounded-xl bg-white px-3 py-1 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:hover:text-primary dark:focus-visible:ring-white mt-5"
                     >
                         Sign Up
                     </Link>

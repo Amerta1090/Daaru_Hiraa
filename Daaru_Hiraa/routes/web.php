@@ -1,9 +1,12 @@
 <?php
 
+use App\Http\Controllers\DendaController;
+use App\Http\Controllers\GuideCOntroller;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PiketController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProgressController;
+use App\Http\Controllers\SholatController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -15,8 +18,11 @@ Route::middleware(['auth','verified'])->group(function () {
 
     //member
     Route::resource('home', UserController::class);
+    Route::resource('denda', DendaController::class);
+    Route::resource('jadwal', SholatController::class);
+    Route::resource('progress', ProgressController::class); 
     Route::resource('piket', PiketController::class);
-    Route::resource('progress', ProgressController::class);
+    Route::resource('guide', GuideCOntroller::class); 
 
     Route::resource('admin', HomeController::class)->middleware('admin');
 

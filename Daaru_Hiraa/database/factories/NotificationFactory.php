@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\RollCall>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Notification>
  */
-class RollCallFactory extends Factory
+class NotificationFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,7 +18,10 @@ class RollCallFactory extends Factory
     {
         return [
             'user_id' => 2,
-            'status' => fake()->randomElement(['Hadir', 'Tidak']),
+            'title' => fake()->title(),
+            'content' => fake()->sentence(),
+            'url' => fake()->url(),
+            'date' => fake()->date(),
         ];
     }
 }

@@ -2,26 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\NotificationResource;
-use App\Models\Notification;
-use Illuminate\Http\Request;
+use App\Models\notification;
+use App\Http\Requests\StorenotificationRequest;
+use App\Http\Requests\UpdatenotificationRequest;
 
-class PiketController extends Controller
+class NotificationController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $notification = Notification::query();
-        $userId = auth()->user()->id;
-
-        
-        $notifications = $notification->where('user_id', $userId)->get();
-        
-        return inertia('Member/JadwalPiket/Index', [
-            "notifications" => NotificationResource::collection($notifications),
-        ]);
+        //
     }
 
     /**
@@ -35,7 +27,7 @@ class PiketController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StorenotificationRequest $request)
     {
         //
     }
@@ -43,7 +35,7 @@ class PiketController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(notification $notification)
     {
         //
     }
@@ -51,7 +43,7 @@ class PiketController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(notification $notification)
     {
         //
     }
@@ -59,7 +51,7 @@ class PiketController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdatenotificationRequest $request, notification $notification)
     {
         //
     }
@@ -67,7 +59,7 @@ class PiketController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(notification $notification)
     {
         //
     }

@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Announcement;
+use App\Models\Notification;
 use App\Models\RollCall;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -28,5 +30,7 @@ class DatabaseSeeder extends Seeder
             'password' => '123',
         ]);
         RollCall::factory(20)->create();
+        Notification::factory(10)->create();
+        Announcement::factory(5)->create();
     }
 }

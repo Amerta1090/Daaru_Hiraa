@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\RollCall>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Guide>
  */
-class RollCallFactory extends Factory
+class GuideFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,8 +17,7 @@ class RollCallFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id' => 2,
-            'status' => fake()->randomElement(['Hadir', 'Tidak']),
+            //
         ];
     }
 }

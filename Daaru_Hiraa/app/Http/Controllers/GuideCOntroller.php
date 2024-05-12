@@ -3,29 +3,29 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\NotificationResource;
+use App\Models\guide;
+use App\Http\Requests\StoreguideRequest;
+use App\Http\Requests\UpdateguideRequest;
 use App\Models\Notification;
-use App\Models\progress;
-use App\Http\Requests\StoreprogressRequest;
-use App\Http\Requests\UpdateprogressRequest;
 
-class ProgressController extends Controller
+class GuideCOntroller extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $notofication = Notification::query();
+        
+        $notification = Notification::query();
         $userId = auth()->user()->id;
 
         
-        $notofications = $notofication->where('user_id', $userId)->get();
+        $notifications = $notification->where('user_id', $userId)->get();
         
-        return inertia('Member/Progress/Index', [
-            "notifications" => NotificationResource::collection($notofications),
+        return inertia('Guide/Index', [
+            "notifications" => NotificationResource::collection($notifications),
         ]);
     }
-    
 
     /**
      * Show the form for creating a new resource.
@@ -38,7 +38,7 @@ class ProgressController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreprogressRequest $request)
+    public function store(StoreguideRequest $request)
     {
         //
     }
@@ -46,7 +46,7 @@ class ProgressController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(progress $progress)
+    public function show(guide $guide)
     {
         //
     }
@@ -54,7 +54,7 @@ class ProgressController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(progress $progress)
+    public function edit(guide $guide)
     {
         //
     }
@@ -62,7 +62,7 @@ class ProgressController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateprogressRequest $request, progress $progress)
+    public function update(UpdateguideRequest $request, guide $guide)
     {
         //
     }
@@ -70,7 +70,7 @@ class ProgressController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(progress $progress)
+    public function destroy(guide $guide)
     {
         //
     }

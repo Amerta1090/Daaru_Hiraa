@@ -9,7 +9,7 @@ import PrimaryButton from "@/Components/PrimaryButton";
 import { useEffect, useState } from "react";
 import { count } from "console";
 
-const Progress = ({ auth }: PageProps) => {
+const Progress = ({ auth, notifications }: PageProps) => {
     const [surahs, setSurahs] = useState<any>([]);
     const [isLoading, setIsLoading] = useState(false);
 
@@ -38,7 +38,11 @@ const Progress = ({ auth }: PageProps) => {
     }, []);
 
     return (
-        <AuthenticatedLayout user={auth.user} title="Progress">
+        <AuthenticatedLayout
+            user={auth.user}
+            title="Mutaba'ah Al-Qur'an"
+            notifications={notifications}
+        >
             <Head title="Progress" />
 
             <div className="mx-auto px-2">
@@ -46,7 +50,7 @@ const Progress = ({ auth }: PageProps) => {
                     {/* LEFT CONTENT */}
                     <div className="w-[65%] flex flex-col gap-7">
                         {/* HEADER */}
-                        <div className="bg-black shadow-xl sm:rounded-xl h-[300px]">
+                        <div className="bg-primary shadow-xl sm:rounded-xl h-[300px]">
                             <div className="p-6 text-white">
                                 You're logged in!
                             </div>
@@ -63,19 +67,14 @@ const Progress = ({ auth }: PageProps) => {
                                         </p>
                                     </div>
                                 )}
-                                {surahs.map(
-                                    (surah: any) => (
-                                        console.log(surah),
-                                        (
-                                            <span
-                                                className="px-3 py-2 rounded-xl border bg-gray-500 text-white text-center text-sm cursor-pointer text-nowrap"
-                                                key={surah.id}
-                                            >
-                                                {surah.nama_latin}
-                                            </span>
-                                        )
-                                    )
-                                )}
+                                {surahs.map((surah: any, index: number) => (
+                                    <span
+                                        className="px-3 py-2 rounded-xl border bg-gray-500 text-white text-center text-sm cursor-pointer text-nowrap"
+                                        key={index}
+                                    >
+                                        {surah.nama_latin}
+                                    </span>
+                                ))}
                             </div>
                         </div>
                         {/* END SURAH */}
@@ -199,7 +198,7 @@ const Progress = ({ auth }: PageProps) => {
                         <h1 className="text-2xl font-bold pt-2 text-gray-600">
                             Riwayat
                         </h1>
-                        <div className="p-6 text-white bg-black shadow-xl sm:rounded-xl flex flex-col gap-5 h-[50rem] overflow-x-auto">
+                        <div className="p-6 text-white bg-primary shadow-xl sm:rounded-xl flex flex-col gap-5 h-[50rem] overflow-x-auto">
                             {/* Content */}
                             <div className="p-6 text-gray-900 bg-white shadow-xl sm:rounded-xl flex flex-col gap-2 h-[14rem]">
                                 <div className="flex justify-between">

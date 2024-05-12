@@ -23,14 +23,14 @@ const Progressbar: FC<Props> = (props) => {
                 <div className="relative">
                     <svg width={sqSize} height={sqSize} viewBox={viewBox}>
                         <circle
-                            className="fill-none stroke-gray-200"
+                            className="fill-none stroke-circleProgress"
                             cx={sqSize / 2}
                             cy={sqSize / 2}
                             r={radius}
                             strokeWidth={`${strokeWidth}px`}
                         />
                         <circle
-                            className="fill-none stroke-orange-600 transition-all ease-in delay-200"
+                            className="fill-none stroke-textTidakHadir transition-all ease-in delay-200"
                             cx={sqSize / 2}
                             cy={sqSize / 2}
                             r={radius}

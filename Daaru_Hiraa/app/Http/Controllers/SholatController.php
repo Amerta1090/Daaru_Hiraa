@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\NotificationResource;
+use App\Models\Notification;
 use App\Models\sholat;
 use App\Http\Requests\StoresholatRequest;
 use App\Http\Requests\UpdatesholatRequest;
@@ -13,7 +15,15 @@ class SholatController extends Controller
      */
     public function index()
     {
-        //
+        $notification = Notification::query();
+        $userId = auth()->user()->id;
+
+        
+        $notifications = $notification->where('user_id', $userId)->get();
+        
+        return inertia('Member/JadwalSholat/Index', [
+            "notifications" => NotificationResource::collection($notifications),
+        ]);
     }
 
     /**
