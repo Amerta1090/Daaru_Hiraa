@@ -7,6 +7,7 @@ import TextInput from "@/Components/TextInput";
 import { Head, Link, useForm } from "@inertiajs/react";
 import image from "../../../../assets/logo.png";
 import Checkbox from "@/Components/Checkbox";
+import bgimg from "../../../../assets/bg.jpg";
 
 export default function Register() {
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -176,7 +177,7 @@ export default function Register() {
                     </form>
                 </div>
             </div>
-            <div className="hidden md:w-1/2 md:bg-gray-800 overflow-hidden h-[100vh] md:flex md:item-center md:justify-center items-center flex-col gap-10 image ">
+            <div className="hidden md:w-1/2 md:bg-gray-800 overflow-hidden h-[100vh] md:flex md:item-center md:justify-center items-center flex-col gap-10 image bg-cover bg-center" style={{ backgroundImage: `url(${bgimg})` }}>
                 <img src={image} alt="" />
                 <h1 className="font-bold text-3xl text-white">
                     Welcome to Daaru Hiraa
