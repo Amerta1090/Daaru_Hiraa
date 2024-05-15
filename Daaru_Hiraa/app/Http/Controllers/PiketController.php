@@ -19,7 +19,7 @@ class PiketController extends Controller
         
         $notifications = $notification->where('user_id', $userId)->get();
         
-        return inertia('Member/JadwalPiket/Index', [
+        return inertia('Member/PiketKebersihan/Index', [
             "notifications" => NotificationResource::collection($notifications),
         ]);
     }

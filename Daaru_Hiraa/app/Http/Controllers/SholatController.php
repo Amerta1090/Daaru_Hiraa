@@ -21,7 +21,7 @@ class SholatController extends Controller
         
         $notifications = $notification->where('user_id', $userId)->get();
         
-        return inertia('Member/JadwalSholat/Index', [
+        return inertia('Member/MutabaahSholat/Index', [
             "notifications" => NotificationResource::collection($notifications),
         ]);
     }

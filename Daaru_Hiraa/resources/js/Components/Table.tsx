@@ -14,12 +14,14 @@ const Table = (props: tableProps) => {
         setDataLists(datas);
     }, [datas]);
 
+    // console.log(dataLists.length);
+
     return (
-        <div className="bg-primary shadow-sm sm:rounded-xl h-[250px] w-full mb-5 overflow-auto  ">
+        <>
             <table className="w-full text-sm text-textPrimary">
                 {/* HEADING TABEL */}
-                <thead className="text-xs text-textPrimary uppercase border-b-2 bg-primary">
-                    <tr className="text-nowrap ">
+                <thead className="text-xs text-textPrimary uppercase border-b-2">
+                    <tr className="text-nowrap bg-gray-100">
                         {titles.map((title: string, index: number) => (
                             <th className="py-3" key={index}>
                                 <span className="flex items-center justify-center">
@@ -37,7 +39,10 @@ const Table = (props: tableProps) => {
 
                     {/* DATA PRESENSI */}
                     {dataLists.data?.map((list: any, index: number) => (
-                        <tr className="text-nowrap even:bg-primary" key={index}>
+                        <tr
+                            className="text-nowrap even:bg-gray-100"
+                            key={index}
+                        >
                             <td className="py-3">
                                 <span className="flex items-center mx-2 justify-center">
                                     {index + 1}
@@ -49,20 +54,21 @@ const Table = (props: tableProps) => {
                                     {list.user.name}
                                 </span>
                             </td>
+
+                            <td className="py-3 ">
+                                <span className="flex items-center justify-center">
+                                    {list.created_at}
+                                </span>
+                            </td>
                             <td className="py-3 flex items-center justify-center">
                                 <span
-                                    className={`text-[#ECFFEE] py-1 px-2 rounded-lg bg-[#00B112] ${
+                                    className={` py-1 px-2 rounded-lg  ${
                                         list.status === "Hadir"
-                                            ? "bg-bgHadir text-textHadir"
+                                            ? "bg-[#BFF6C3] text-green-500"
                                             : "bg-bgTidakHadir text-textTidakHadir"
                                     }`}
                                 >
                                     {list.status}
-                                </span>
-                            </td>
-                            <td className="py-3 ">
-                                <span className="flex items-center justify-center">
-                                    {list.created_at}
                                 </span>
                             </td>
                         </tr>
@@ -70,13 +76,15 @@ const Table = (props: tableProps) => {
                     {/* END DATA PRESENSI */}
                 </tbody>
             </table>
+
             {/* VAALIDATION DATA */}
-            {dataLists.data?.length === 0 && (
-                <div className="mt-20 flex items-center justify-center text-textPrimary">
+            {dataLists.length === 0 && (
+                <div className="my-20 flex items-center justify-center text-textPrimary">
                     <h1 className="font-semibold text-xl">TIdak Ada Data</h1>
                 </div>
             )}
-        </div>
+            {/* END VAALIDATION DATA */}
+        </>
     );
 };
 

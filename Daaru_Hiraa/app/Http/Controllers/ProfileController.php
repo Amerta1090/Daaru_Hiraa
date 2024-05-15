@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Http\Resources\NotificationResource;
+use App\Models\Notification;
+use App\Models\User;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -18,9 +21,19 @@ class ProfileController extends Controller
      */
     public function edit(Request $request): Response
     {
+        $notification = Notification::query();
+        $users = User::query();
+        $userId = auth()->user()->id;
+
+        
+        $notifications = $notification->where('user_id', $userId)->get();
+        $user = $users->where('id', $userId)->get();
+        
         return Inertia::render('Profile/Edit', [
             'mustVerifyEmail' => $request->user() instanceof MustVerifyEmail,
+            'users' => $user,
             'status' => session('status'),
+            "notifications" => NotificationResource::collection($notifications),
         ]);
     }
 

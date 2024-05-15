@@ -23,7 +23,7 @@ const Progressbar: FC<Props> = (props) => {
                 <div className="relative">
                     <svg width={sqSize} height={sqSize} viewBox={viewBox}>
                         <circle
-                            className="fill-none stroke-circleProgress"
+                            className="fill-none stroke-[#FFD966]"
                             cx={sqSize / 2}
                             cy={sqSize / 2}
                             r={radius}
@@ -45,8 +45,8 @@ const Progressbar: FC<Props> = (props) => {
                             }}
                         />
                     </svg>
-                    <span className="absolute flex items-center justify-center w-full h-10 top-[60px]">
-                        <p className="text-white text-3xl font-bold ">
+                    <span className="absolute flex items-center justify-center w-full h-10 top-[55px]">
+                        <p className=" text-3xl font-bold ">
                             <NumberCount
                                 initialValue={0}
                                 targetValue={percentage}

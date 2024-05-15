@@ -12,17 +12,17 @@ const Navbar = ({
     notifications,
 }: PropsWithChildren<{
     user: User;
-    title: string;
+    title?: string;
     notifications: any;
 }>) => {
     const [showingNavigationDropdown, setShowingNavigationDropdown] =
         useState(false);
     const [isModal, setIsModal] = useState(false);
 
-    console.log(notifications); // {data: notifications.data};
+    // console.log(notifications); // {data: notifications.data};
 
     return (
-        <nav className="bg-transparent mx-4 mt-3 py-1 fixed w-[99%] -left-2 px-1">
+        <nav className="bg-transparent mx-4 mt-3 py-1 fixed w-[99%] -left-2 px-1 bg-white rounded-xl">
             <div className="mx-auto px-4">
                 <div className="flex justify-between h-16">
                     <div className="flex">
