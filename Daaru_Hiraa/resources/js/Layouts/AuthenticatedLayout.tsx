@@ -7,6 +7,7 @@ import {
     BookOpenIcon,
     CalendarDaysIcon,
     HomeIcon,
+    MoonIcon,
     QuestionMarkCircleIcon,
 } from "@heroicons/react/24/outline";
 
@@ -23,7 +24,7 @@ const listSidebarMenu = [
     },
     {
         name: "Jadwal Solat",
-        icon: <HomeIcon />,
+        icon: <MoonIcon />,
         href: "jadwal.index",
     },
 
@@ -62,11 +63,12 @@ export default function Authenticated({
             <div className="flex flex-wrap pt-[82px] m-1 gap-5 me-5">
                 <div className="hidden sm:flex">
                     <Sidebar
-                        className="fixed top-24 left-3"
+                        className="fixed top-[105px] left-4"
                         listMenus={listSidebarMenu}
                     />
                 </div>
                 <main className="flex-grow mt-5 mb-3 ps-[72px]">
+                    {/* <h1 className="text-3xl font-bold mb-5 mx-2">{title}</h1> */}
                     {children}
                 </main>
             </div>

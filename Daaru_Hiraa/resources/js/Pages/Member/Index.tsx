@@ -12,6 +12,69 @@ import { useState } from "react";
 import Progressbar from "@/Components/Progressbar";
 import Table from "@/Components/Table";
 
+const jadwalList = [
+    {
+        title: "Kultum",
+        time: "14.00 - 16.00",
+        mentor: "Andi",
+    },
+    {
+        title: "Pengajian Bang",
+        time: "21.00 - 23.00",
+        mentor: "Majid Ahmad",
+    },
+    {
+        title: "Kultunm",
+        time: "14.00 - 16.00",
+        mentor: "Andi",
+    },
+    {
+        title: "Pengajian Bang",
+        time: "21.00 - 23.00",
+        mentor: "Majid Ahmad",
+    },
+    {
+        title: "Kultunm",
+        time: "14.00 - 16.00",
+        mentor: "Andi",
+    },
+    {
+        title: "Pengajian Bang",
+        time: "21.00 - 23.00",
+        mentor: "Majid Ahmad",
+    },
+    {
+        title: "Kultunm",
+        time: "14.00 - 16.00",
+        mentor: "Andi",
+    },
+    {
+        title: "Pengajian Bang",
+        time: "21.00 - 23.00",
+        mentor: "Majid Ahmad",
+    },
+    {
+        title: "Kultunm",
+        time: "14.00 - 16.00",
+        mentor: "Andi",
+    },
+    {
+        title: "Pengajian Bang",
+        time: "21.00 - 23.00",
+        mentor: "Majid Ahmad",
+    },
+    {
+        title: "Kultunm",
+        time: "14.00 - 16.00",
+        mentor: "Andi",
+    },
+    {
+        title: "Pengajian Bang",
+        time: "21.00 - 23.00",
+        mentor: "Majid Ahmad",
+    },
+];
+
 const Home = ({ auth, rollCalls, notifications, announcements }: PageProps) => {
     const [progress, setProgress] = useState(0);
 
@@ -28,319 +91,182 @@ const Home = ({ auth, rollCalls, notifications, announcements }: PageProps) => {
         >
             <Head title="Dashboard" />
 
-            <div className="flex gap-5 flex-col  px-2">
+            <div className="flex gap-5 flex-col px-2">
                 {/* TOP CONTENT */}
                 <div className="flex gap-5 flex-wrap">
-                    <div className="flex w-[calc(100%-660px)] flex-col gap-5">
-                        <div className="flex w-full gap-5 h-[270px]">
-                            {/* DENDA */}
-                            <div className="bg-primary shadow-sm sm:rounded-xl w-1/2 flex flex-col items-center text-textPrimary">
-                                <div className="text flex justify-start items-start w-full">
-                                    <p className="p-6 text-3xl font-thin">
-                                        Total Denda
-                                    </p>
+                    <div className="flex  flex-col gap-5">
+                        {/* AKTIVITAS */}
+                        <div className="flex flex-col gap-2 bg-background py-2 px-5 rounded-xl">
+                            <h1 className="mb-2 text-xl font-semibold text-textPrimary">
+                                Aktivitas
+                            </h1>
+                            <div className="flex gap-5 pb-4">
+                                {/* DENDA */}
+                                <div className="bg-[#BFF6C3] shadow-sm sm:rounded-xl grow gap-5 flex items-center justify-start  text-textPrimary px-5 w-[20rem]">
+                                    <div className="text flex justify-start flex-col ">
+                                        <span className="rounded-full bg-green-500 flex items-center justify-center px-3 py-5 w-20 text-background ">
+                                            <BanknotesIcon className="-rotate-90 w-10" />
+                                        </span>
+                                    </div>
+                                    <div className="flex flex-col justify-start items-start">
+                                        <p className="font-bold text-4xl">
+                                            Rp 5.000
+                                        </p>
+                                        <p className=" text-2xl font-thin  text-gray-700">
+                                            Total Denda
+                                        </p>
+                                    </div>
                                 </div>
-                                <div className="flex gap-2">
-                                    <BanknotesIcon className="w-40 -rotate-90 text-xl" />
-                                    <p className="font-thin text-5xl">Rp</p>
-                                    <span className="flex items-center justify-center">
-                                        <h1 className="text-5xl">
-                                            {/* <NumberCount
-                                                    initialValue={0}
-                                                    targetValue={5000}
-                                                /> */}
-                                            5000
-                                        </h1>
-                                    </span>
-                                </div>
-                            </div>
-                            {/* END DENDA */}
+                                {/* END DENDA */}
 
-                            {/* PERINGATAN */}
-                            <div className="bg-primary shadow-sm sm:rounded-xl w-1/2 flex flex-col justify-start text-textPrimary">
-                                {/* TOP CONTENT */}
-                                <div className="text flex justify-start items-start w-full">
-                                    <h1 className="px-6 py-5 text-3xl font-thin">
-                                        Peringatan
-                                    </h1>
-                                </div>
-                                {/* END TOP CONTENT */}
+                                {/* PERINGATAN */}
+                                <div className="bg-[#FAEDCD] shadow-sm sm:rounded-xl grow flex justify-start text-textPrimary relative pe-14">
+                                    {/* SP */}
+                                    <div className="rounded-bl-xl rounded-tr-xl absolute right-0 top-0 bg-textTidakHadir py-2 px-3 text-white font-semibold">
+                                        SP
+                                    </div>
+                                    {/* END SP */}
 
-                                {/* CONTENT BOTTOM */}
-                                <div className="flex gap-2">
-                                    {/* PROGRESSBAR */}
-                                    <div className="px-10">
-                                        <Progressbar
-                                            sqSize={160}
-                                            strokeWidth={8}
-                                            percentage={20}
-                                        />
-                                        {/* <button
+                                    {/* CONTENT BOTTOM */}
+                                    <div className="flex ">
+                                        {/* PROGRESSBAR */}
+                                        <div className="p-6">
+                                            <Progressbar
+                                                sqSize={150}
+                                                strokeWidth={8}
+                                                percentage={20}
+                                            />
+                                            {/* <button
                                                 onClick={onChangeProgress}
                                                 className="text-neutral-800 rounded-lg border border-neutral-800 bg-transparent px-2 py-1 min-w-[140px] mt-4 hover:bg-gray-200 hover:border-gray-200 "
                                             >
                                                 Update Progress
                                             </button> */}
+                                        </div>
+                                        {/* END PROGRESSBAR */}
+
+                                        <span className="flex flex-col gap-2 items-start justify-start my-10">
+                                            <p className="font-bold text-xl text-black">
+                                                Pelanggaran
+                                                <div className="w-full h-[0.1rem] bg-black"></div>
+                                            </p>
+                                            <ul className="flex font-normal text-black">
+                                                <li className="font-thin">
+                                                    1. Tidak mengikuti kajian
+                                                </li>
+                                            </ul>
+                                        </span>
                                     </div>
-                                    {/* END PROGRESSBAR */}
-
-                                    <span className="flex flex-col gap-2">
-                                        <p className="font-bold text-xl">
-                                            Pelanggaran
-                                            <div className="w-full h-[0.1rem] bg-textPrimary "></div>
-                                        </p>
-                                        <ul className="flex font-normal">
-                                            <li className="font-thin">
-                                                1. Tidak Solat
-                                            </li>
-                                        </ul>
-                                    </span>
+                                    {/* END CONTENT BOTTOM */}
                                 </div>
-                                {/* END CONTENT BOTTOM */}
+                                {/* END PERINGATAN */}
                             </div>
-                            {/* END PERINGATAN */}
                         </div>
+                        {/* END AKTIVITAS */}
 
-                        {/* TABLE PRESENSI */}
-                        <div className="w-full  bg-primary border px-5 py-2 rounded-xl">
-                            <h1 className="pb-2 text-xl font-semibold text-textPrimary">
-                                Riwayat Presensi
-                            </h1>
+                        {/* ANNOUNCEMENT */}
+                        <div className=" bg-background border px-5 py-2 rounded-xl h-[18rem]">
+                            <div className="lg:w-[50rem]">
+                                <h1 className="mb-2 text-xl font-semibold text-textPrimary">
+                                    Pengumuman
+                                </h1>
+                                {/* CONTENT */}
+                                <div className=" flex items-center justify-center gap-10 text-textPrimary ">
+                                    <button>
+                                        <ChevronLeftIcon className="w-6" />
+                                    </button>
+                                    <div className="w-3/4 h-[14rem] border rounded-xl overflow-x-auto overflow-y-hidden flex items-center justify-center">
+                                        {announcements?.data.map(
+                                            (
+                                                announcement: any,
+                                                index: number
+                                            ) => (
+                                                <img
+                                                    src={announcement.image}
+                                                    alt=""
+                                                    key={index}
+                                                />
+                                            )
+                                        )}
+                                    </div>
+                                    <button>
+                                        <ChevronRightIcon className="w-6" />
+                                    </button>
+                                </div>
+                            </div>
+                            {/* END CONTENT */}
+                        </div>
+                        {/* END ANNOUNCEMENT */}
+                    </div>
 
+                    {/* PRESENSI */}
+                    <div className="grow bg-background rounded-xl shadow-sm px-6 py-4 flex flex-col gap-5">
+                        <h1 className="pb-2 text-xl font-semibold text-textPrimary">
+                            Riwayat Presensi
+                        </h1>
+                        <div className="w-full h-[29rem] rounded-xl bg overflow-y-scroll border">
                             {/* TABLE */}
                             <Table
-                                titles={["No", "Name", "Status", "Date"]}
+                                titles={["No", "Name", "Date", "Status"]}
                                 datas={rollCalls}
                             />
                             {/* END TABLE */}
                         </div>
                     </div>
-
-                    {/* RIGHT CONTENT */}
-                    <div className="w-[40rem] h-[613px] bg-primary rounded-xl shadow-xl px-6 py-4 flex flex-col gap-5">
-                        {/* ANNOUNCEMENT */}
-                        <div className="grow">
-                            <h1 className="mb-2 text-xl font-semibold text-textPrimary">
-                                Pengumuman
-                            </h1>
-                            {/* CONTENT */}
-                            <div className=" flex items-center justify-center gap-10 text-textPrimary">
-                                <button>
-                                    <ChevronLeftIcon className="w-6" />
-                                </button>
-                                <div className="w-full h-[10rem] border rounded-xl overflow-x-auto overflow-y-hidden flex items-center justify-center">
-                                    {announcements?.data.map(
-                                        (announcement: any, index: number) => (
-                                            <img
-                                                src={announcement.image}
-                                                alt=""
-                                                key={index}
-                                            />
-                                        )
-                                    )}
-                                </div>
-                                <button>
-                                    <ChevronRightIcon className="w-6" />
-                                </button>
-                            </div>
-                            {/* END CONTENT */}
-                        </div>
-                        {/* END ANNOUNCEMENT */}
-
-                        {/* CALENDAR */}
-                        <div className="h-3/4">
-                            <h1 className="mb-2 text-xl font-semibold text-textPrimary">
-                                Kalender
-                            </h1>
-                            <div className="px-10 py-6">
-                                {/* <MyCalendar /> */}
-                            </div>
-                        </div>
-                        {/* END CALENDAR */}
-                    </div>
-                    {/* END RIGHT CONTENT */}
+                    {/* END PRESENSI */}
                 </div>
 
                 {/* JADWAL */}
-                <div className="w-full bg-primary shadow-xl rounded-xl">
-                    <div className="px-6 pt-5 text-gray-900">
-                        <h1 className="pb-2 text-xl font-semibold text-textPrimary">
+                <div className="w-full bg-background shadow-xl rounded-xl flex items-center justify-center ">
+                    <div className="py-5 text-gray-900 flex flex-col gap-2">
+                        <h1 className="text-xl font-semibold text-textPrimary">
                             Jadwal Hari ini
                         </h1>
-                        <div className="flex gap-5 pb-5 px-2 overflow-x-scroll w-[106rem] ">
-                            {/* JADWA: CONTETNT */}
-                            <div className="bg-gray-500 h-40 rounded-xl shadow-md shadow-gray-900 flex flex-col justify-end imageHome">
-                                <div className="w-[20rem] bg-[#f2f2f2] rounded-b-xl p-5 grid gap-3 ">
-                                    <h1>Judul</h1>
-                                    <div className="flex justify-between">
-                                        {/* CLOCK */}
-                                        <span className="flex text-black gap-2">
-                                            <ClockIcon className="w-5" />
-                                            <h1 className="">ini jam</h1>
-                                        </span>
-                                        {/* PEMATERI */}
-                                        <span className="flex gap-2">
-                                            <UsersIcon className="w-5" />
-                                            <h1>Pemateri</h1>
-                                        </span>
+                        <div className="flex gap-5  px-2 overflow-x-scroll w-[106rem] items-center justify-start">
+                            {/* JADWAL CONTETNT */}
+
+                            <div className="flex  gap-5">
+                                {jadwalList.map((jadwal, index) => (
+                                    <div
+                                        className="h-36 rounded-xl border-2 flex flex-col w-[20rem] overflow-hidden"
+                                        key={index}
+                                    >
+                                        {/* JUDUL */}
+                                        <div className="flex items-center justify-start px-3 py-2 bg-primary">
+                                            <h1 className="text-white font-bold text-xl">
+                                                {jadwal.title}
+                                            </h1>
+                                        </div>
+                                        {/* END JUDUL */}
+                                        <div className="grow bg-white rounded-b-xl p-5 grid gap-3 ">
+                                            <div className="flex justify-between items-end">
+                                                {/* CLOCK */}
+                                                <span className="flex text-black gap-2">
+                                                    <ClockIcon className="w-5" />
+                                                    <small className="">
+                                                        {jadwal.time}
+                                                    </small>
+                                                </span>
+                                                {/* PEMATERI */}
+                                                <span className="flex gap-2">
+                                                    <UsersIcon className="w-5" />
+                                                    <small>
+                                                        {jadwal.mentor}
+                                                    </small>
+                                                </span>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
+                                ))}
                             </div>
-                            <div className="bg-gray-500 h-40 rounded-xl shadow-md shadow-gray-900 flex flex-col justify-end imageHome">
-                                <div className="w-[20rem] bg-[#f2f2f2] rounded-b-xl p-5 grid gap-3 ">
-                                    <h1>Judul</h1>
-                                    <div className="flex justify-between">
-                                        {/* CLOCK */}
-                                        <span className="flex text-black gap-2">
-                                            <ClockIcon className="w-5" />
-                                            <h1 className="">ini jam</h1>
-                                        </span>
-                                        {/* PEMATERI */}
-                                        <span className="flex gap-2">
-                                            <UsersIcon className="w-5" />
-                                            <h1>Pemateri</h1>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="bg-gray-500 h-40 rounded-xl shadow-md shadow-gray-900 flex flex-col justify-end imageHome">
-                                <div className="w-[20rem] bg-[#f2f2f2] rounded-b-xl p-5 grid gap-3 ">
-                                    <h1>Judul</h1>
-                                    <div className="flex justify-between">
-                                        {/* CLOCK */}
-                                        <span className="flex text-black gap-2">
-                                            <ClockIcon className="w-5" />
-                                            <h1 className="">ini jam</h1>
-                                        </span>
-                                        {/* PEMATERI */}
-                                        <span className="flex gap-2">
-                                            <UsersIcon className="w-5" />
-                                            <h1>Pemateri</h1>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="bg-gray-500 h-40 rounded-xl shadow-md shadow-gray-900 flex flex-col justify-end imageHome">
-                                <div className="w-[20rem] bg-[#f2f2f2] rounded-b-xl p-5 grid gap-3 ">
-                                    <h1>Judul</h1>
-                                    <div className="flex justify-between">
-                                        {/* CLOCK */}
-                                        <span className="flex text-black gap-2">
-                                            <ClockIcon className="w-5" />
-                                            <h1 className="">ini jam</h1>
-                                        </span>
-                                        {/* PEMATERI */}
-                                        <span className="flex gap-2">
-                                            <UsersIcon className="w-5" />
-                                            <h1>Pemateri</h1>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="bg-gray-500 h-40 rounded-xl shadow-md shadow-gray-900 flex flex-col justify-end imageHome">
-                                <div className="w-[20rem] bg-[#f2f2f2] rounded-b-xl p-5 grid gap-3 ">
-                                    <h1>Judul</h1>
-                                    <div className="flex justify-between">
-                                        {/* CLOCK */}
-                                        <span className="flex text-black gap-2">
-                                            <ClockIcon className="w-5" />
-                                            <h1 className="">ini jam</h1>
-                                        </span>
-                                        {/* PEMATERI */}
-                                        <span className="flex gap-2">
-                                            <UsersIcon className="w-5" />
-                                            <h1>Pemateri</h1>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="bg-gray-500 h-40 rounded-xl shadow-md shadow-gray-900 flex flex-col justify-end imageHome">
-                                <div className="w-[20rem] bg-[#f2f2f2] rounded-b-xl p-5 grid gap-3 ">
-                                    <h1>Judul</h1>
-                                    <div className="flex justify-between">
-                                        {/* CLOCK */}
-                                        <span className="flex text-black gap-2">
-                                            <ClockIcon className="w-5" />
-                                            <h1 className="">ini jam</h1>
-                                        </span>
-                                        {/* PEMATERI */}
-                                        <span className="flex gap-2">
-                                            <UsersIcon className="w-5" />
-                                            <h1>Pemateri</h1>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="bg-gray-500 h-40 rounded-xl shadow-md shadow-gray-900 flex flex-col justify-end imageHome">
-                                <div className="w-[20rem] bg-[#f2f2f2] rounded-b-xl p-5 grid gap-3 ">
-                                    <h1>Judul</h1>
-                                    <div className="flex justify-between">
-                                        {/* CLOCK */}
-                                        <span className="flex text-black gap-2">
-                                            <ClockIcon className="w-5" />
-                                            <h1 className="">ini jam</h1>
-                                        </span>
-                                        {/* PEMATERI */}
-                                        <span className="flex gap-2">
-                                            <UsersIcon className="w-5" />
-                                            <h1>Pemateri</h1>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="bg-gray-500 h-40 rounded-xl shadow-md shadow-gray-900 flex flex-col justify-end imageHome">
-                                <div className="w-[20rem] bg-[#f2f2f2] rounded-b-xl p-5 grid gap-3 ">
-                                    <h1>Judul</h1>
-                                    <div className="flex justify-between">
-                                        {/* CLOCK */}
-                                        <span className="flex text-black gap-2">
-                                            <ClockIcon className="w-5" />
-                                            <h1 className="">ini jam</h1>
-                                        </span>
-                                        {/* PEMATERI */}
-                                        <span className="flex gap-2">
-                                            <UsersIcon className="w-5" />
-                                            <h1>Pemateri</h1>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="bg-gray-500 h-40 rounded-xl shadow-md shadow-gray-900 flex flex-col justify-end imageHome">
-                                <div className="w-[20rem] bg-[#f2f2f2] rounded-b-xl p-5 grid gap-3 ">
-                                    <h1>Judul</h1>
-                                    <div className="flex justify-between">
-                                        {/* CLOCK */}
-                                        <span className="flex text-black gap-2">
-                                            <ClockIcon className="w-5" />
-                                            <h1 className="">ini jam</h1>
-                                        </span>
-                                        {/* PEMATERI */}
-                                        <span className="flex gap-2">
-                                            <UsersIcon className="w-5" />
-                                            <h1>Pemateri</h1>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="bg-gray-500 h-40 rounded-xl shadow-md shadow-gray-900 flex flex-col justify-end imageHome">
-                                <div className="w-[20rem] bg-[#f2f2f2] rounded-b-xl p-5 grid gap-3 ">
-                                    <h1>Judul</h1>
-                                    <div className="flex justify-between">
-                                        {/* CLOCK */}
-                                        <span className="flex text-black gap-2">
-                                            <ClockIcon className="w-5" />
-                                            <h1 className="">ini jam</h1>
-                                        </span>
-                                        {/* PEMATERI */}
-                                        <span className="flex gap-2">
-                                            <UsersIcon className="w-5" />
-                                            <h1>Pemateri</h1>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            {/* END JADWA: CONTETNT */}
+
+                            {/* END JADWAL CONTETNT */}
                         </div>
+                        <span className="flex items-center justify-center gap-2 mt-3">
+                            <button className=" bg-primary rounded-full h-3 w-3"></button>
+                            <button className="w-2 h-2 bg-[#A0E9FF] rounded-full"></button>
+                            <button className="w-2 h-2 bg-[#A0E9FF] rounded-full"></button>
+                        </span>
                     </div>
                 </div>
                 {/* END JADWAL */}

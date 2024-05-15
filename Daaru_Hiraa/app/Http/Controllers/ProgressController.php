@@ -21,7 +21,7 @@ class ProgressController extends Controller
         
         $notofications = $notofication->where('user_id', $userId)->get();
         
-        return inertia('Member/Progress/Index', [
+        return inertia('Member/MutabaahQuran/Index', [
             "notifications" => NotificationResource::collection($notofications),
         ]);
     }
