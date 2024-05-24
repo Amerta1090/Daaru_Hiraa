@@ -1,8 +1,6 @@
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import {
     BanknotesIcon,
-    ChevronLeftIcon,
-    ChevronRightIcon,
     ClockIcon,
     UsersIcon,
 } from "@heroicons/react/24/outline";
@@ -11,6 +9,8 @@ import { PageProps } from "@/types";
 import { useState } from "react";
 import Progressbar from "@/Components/Progressbar";
 import Table from "@/Components/Table";
+import Carausel from "@/Components/Carausel";
+import CarauselSchdule from "@/Components/CarauselSchdule";
 
 const jadwalList = [
     {
@@ -172,26 +172,11 @@ const Home = ({ auth, rollCalls, notifications, announcements }: PageProps) => {
                                 </h1>
                                 {/* CONTENT */}
                                 <div className=" flex items-center justify-center gap-10 text-textPrimary ">
-                                    <button>
-                                        <ChevronLeftIcon className="w-6" />
-                                    </button>
-                                    <div className="w-3/4 h-[14rem] border rounded-xl overflow-x-auto overflow-y-hidden flex items-center justify-center">
-                                        {announcements?.data.map(
-                                            (
-                                                announcement: any,
-                                                index: number
-                                            ) => (
-                                                <img
-                                                    src={announcement.image}
-                                                    alt=""
-                                                    key={index}
-                                                />
-                                            )
-                                        )}
-                                    </div>
-                                    <button>
-                                        <ChevronRightIcon className="w-6" />
-                                    </button>
+                                    <Carausel
+                                        auto={true}
+                                        slides={announcements}
+                                        className="w-3/4 h-[14rem] border rounded-xl flex items-center justify-center"
+                                    />
                                 </div>
                             </div>
                             {/* END CONTENT */}
@@ -217,60 +202,18 @@ const Home = ({ auth, rollCalls, notifications, announcements }: PageProps) => {
                 </div>
 
                 {/* JADWAL */}
-                <div className="w-full bg-background shadow-xl rounded-xl flex items-center justify-center ">
+                <div className="w-full bg-background shadow-md rounded-xl flex items-center justify-center ">
                     <div className="py-5 text-gray-900 flex flex-col gap-2">
                         <h1 className="text-xl font-semibold text-textPrimary">
                             Jadwal Hari ini
                         </h1>
-                        <div className="flex gap-5  px-2 overflow-x-scroll w-[106rem] items-center justify-start">
-                            {/* JADWAL CONTETNT */}
-
-                            <div className="flex  gap-5">
-                                {jadwalList.map((jadwal, index) => (
-                                    <div
-                                        className="h-36 rounded-xl border-2 flex flex-col w-[20rem] overflow-hidden"
-                                        key={index}
-                                    >
-                                        {/* JUDUL */}
-                                        <div className="flex items-center justify-start px-3 py-2 bg-primary">
-                                            <h1 className="text-white font-bold text-xl">
-                                                {jadwal.title}
-                                            </h1>
-                                        </div>
-                                        {/* END JUDUL */}
-                                        <div className="grow bg-white rounded-b-xl p-5 grid gap-3 ">
-                                            <div className="flex justify-between items-end">
-                                                {/* CLOCK */}
-                                                <span className="flex text-black gap-2">
-                                                    <ClockIcon className="w-5" />
-                                                    <small className="">
-                                                        {jadwal.time}
-                                                    </small>
-                                                </span>
-                                                {/* PEMATERI */}
-                                                <span className="flex gap-2">
-                                                    <UsersIcon className="w-5" />
-                                                    <small>
-                                                        {jadwal.mentor}
-                                                    </small>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-
-                            {/* END JADWAL CONTETNT */}
-                        </div>
-                        <span className="flex items-center justify-center gap-2 mt-3">
-                            <button className=" bg-primary rounded-full h-3 w-3"></button>
-                            <button className="w-2 h-2 bg-[#A0E9FF] rounded-full"></button>
-                            <button className="w-2 h-2 bg-[#A0E9FF] rounded-full"></button>
-                        </span>
+                        {/* COURSEL JADWAL */}
+                        <CarauselSchdule auto={true} slides={jadwalList} />
+                        {/* END COURSEL JADWAL */}
                     </div>
                 </div>
-                {/* END JADWAL */}
             </div>
+            {/* END JADWAL */}
         </AuthenticatedLayout>
     );
 };

@@ -2,13 +2,40 @@ import { PropsWithChildren, ReactNode } from "react";
 import { User } from "@/types";
 import Sidebar from "@/Components/Sidebar";
 import Navbar from "@/Components/Navbar";
-import { UserIcon } from "@heroicons/react/24/outline";
+import {
+    ArrowDownOnSquareIcon,
+    CheckBadgeIcon,
+    DocumentChartBarIcon,
+    UserGroupIcon,
+    UserIcon,
+    UserPlusIcon,
+} from "@heroicons/react/24/outline";
 
 const listSIdebarMenu = [
     {
-        name: "Users",
-        icon: <UserIcon />,
+        name: "Presensi",
+        icon: <UserPlusIcon />,
         href: "admin.index",
+    },
+    {
+        name: "Rekap Data",
+        icon: <DocumentChartBarIcon />,
+        href: "denda.index",
+    },
+    {
+        name: "Insert Data",
+        icon: <ArrowDownOnSquareIcon />,
+        href: "denda.index",
+    },
+    {
+        name: "Approval Data",
+        icon: <CheckBadgeIcon />,
+        href: "denda.index",
+    },
+    {
+        name: "Users Data",
+        icon: <UserGroupIcon />,
+        href: "denda.index",
     },
 ];
 
@@ -30,11 +57,12 @@ export default function AdminLayout({
             <div className="flex flex-wrap pt-[82px] m-1 gap-5 me-5">
                 <div className="hidden sm:flex">
                     <Sidebar
-                        className="fixed top-24 left-3"
+                        className="fixed top-[105px] left-4"
                         listMenus={listSIdebarMenu}
                     />
                 </div>
                 <main className="flex-grow mt-5 mb-3 ps-[72px]">
+                    {/* <h1 className="text-3xl font-bold mb-5 mx-2">{title}</h1> */}
                     {children}
                 </main>
             </div>
