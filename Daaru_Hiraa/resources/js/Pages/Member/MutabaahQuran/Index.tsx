@@ -7,7 +7,6 @@ import TextInput from "@/Components/TextInput";
 import InputError from "@/Components/InputError";
 import PrimaryButton from "@/Components/PrimaryButton";
 import { useEffect, useState } from "react";
-import { count } from "console";
 
 const Progress = ({ auth, notifications }: PageProps) => {
     const [surahs, setSurahs] = useState<any>([]);

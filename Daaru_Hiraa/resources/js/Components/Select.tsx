@@ -3,7 +3,7 @@ import InputLabel from "./InputLabel";
 type PropsSelect = {
     className?: string;
     options: Array<any>;
-    name: string;
+    name?: string;
 };
 
 const Select = (props: PropsSelect) => {
