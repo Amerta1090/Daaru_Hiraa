@@ -20,7 +20,7 @@ const JadwalPiket = ({ auth, notifications }: PageProps) => {
                 <div className="flex flex-col w-[60%] gap-5">
                     <div className="py-5 bg-background px-5 grid gap-2 rounded-xl shadow-md">
                         <h1 className="pb-2 text-xl font-semibold text-textPrimary">
-                            Form Pengumpulan
+                            Piket Kebersihan
                         </h1>
                         {/* OPSI */}
                         <div className="flex items-center justify-center gap-5">
@@ -98,7 +98,7 @@ const JadwalPiket = ({ auth, notifications }: PageProps) => {
 
                 <div className="grow bg-background rounded-xl shadow-sm px-6 py-4 flex flex-col gap-5">
                     <h1 className="pb-2 text-xl font-semibold text-textPrimary">
-                        Riwayat Piket
+                        Riwayat
                     </h1>
                     <div className="w-full max-h-[48rem] rounded-xl bg overflow-y-scroll border">
                         {/* TABLE */}

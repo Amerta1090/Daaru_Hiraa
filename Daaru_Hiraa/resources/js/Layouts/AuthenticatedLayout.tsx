@@ -8,6 +8,7 @@ import {
     CalendarDaysIcon,
     HomeIcon,
     MoonIcon,
+    PresentationChartBarIcon,
     QuestionMarkCircleIcon,
 } from "@heroicons/react/24/outline";
 
@@ -37,6 +38,11 @@ const listSidebarMenu = [
         name: "Piket Kebersihan",
         icon: <CalendarDaysIcon />,
         href: "piket.index",
+    },
+    {
+        name: "Laporan Inventaris",
+        icon: <PresentationChartBarIcon />,
+        href: "inventaris.index",
     },
     {
         name: "Panduan",
