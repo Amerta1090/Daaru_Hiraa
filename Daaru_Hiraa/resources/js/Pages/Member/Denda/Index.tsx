@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { PageProps } from "@/types";
 import { Head } from "@inertiajs/react";
@@ -8,12 +8,24 @@ const Denda = ({ auth, notifications }: PageProps) => {
     const [nominal, setNominal] = useState("RP. 000");
     const [description, setDescription] = useState("");
     const [list, setList] = useState([
-        { no: 1, keterangan: "Example 1", tanggal: "2024-05-16", nominal: "RP. 500", status: "belum bayar" },
-        { no: 2, keterangan: "Example 2", tanggal: "2024-05-17", nominal: "RP. 1000", status: "proses" },
+        {
+            no: 1,
+            keterangan: "Example 1",
+            tanggal: "2024-05-16",
+            nominal: "RP. 500",
+            status: "belum bayar",
+        },
+        {
+            no: 2,
+            keterangan: "Example 2",
+            tanggal: "2024-05-17",
+            nominal: "RP. 1000",
+            status: "proses",
+        },
         // Add more items as needed
     ]);
 
-    const handleListClick = (item) => {
+    const handleListClick = (item: any) => {
         setNominal(item.nominal);
         setDescription(item.keterangan);
     };
@@ -30,13 +42,15 @@ const Denda = ({ auth, notifications }: PageProps) => {
             notifications={notifications}
         >
             <Head title="Denda" />
-            
+
             <main className="p-4">
                 {/* Form Section */}
                 <div className="bg-white shadow rounded-lg p-4 mb-4">
                     <div className="mb-4">
-                        <label className="block text-gray-700">Metode Pembayaran:</label>
-                        <select 
+                        <label className="block text-gray-700">
+                            Metode Pembayaran:
+                        </label>
+                        <select
                             className="mt-1 block w-full p-2 border border-gray-300 rounded"
                             value={paymentMethod}
                             onChange={(e) => setPaymentMethod(e.target.value)}
@@ -48,7 +62,7 @@ const Denda = ({ auth, notifications }: PageProps) => {
                     </div>
                     <div className="mb-4">
                         <label className="block text-gray-700">Nominal:</label>
-                        <input 
+                        <input
                             type="text"
                             className="mt-1 block w-full p-2 border border-gray-300 rounded"
                             value={nominal}
@@ -56,15 +70,17 @@ const Denda = ({ auth, notifications }: PageProps) => {
                         />
                     </div>
                     <div className="mb-4">
-                        <label className="block text-gray-700">Keterangan:</label>
-                        <input 
+                        <label className="block text-gray-700">
+                            Keterangan:
+                        </label>
+                        <input
                             type="text"
                             className="mt-1 block w-full p-2 border border-gray-300 rounded"
                             value={description}
                             onChange={(e) => setDescription(e.target.value)}
                         />
                     </div>
-                    <button 
+                    <button
                         className="bg-blue-500 text-white py-2 px-4 rounded"
                         onClick={handleSubmit}
                     >
@@ -79,17 +95,27 @@ const Denda = ({ auth, notifications }: PageProps) => {
                             <thead className="bg-gray-200">
                                 <tr>
                                     <th className="p-2 text-left">No</th>
-                                    <th className="p-2 text-left">Keterangan</th>
+                                    <th className="p-2 text-left">
+                                        Keterangan
+                                    </th>
                                     <th className="p-2 text-left">Tanggal</th>
                                     <th className="p-2 text-left">Nominal</th>
-                                    <th className="p-2 text-left">Status Denda</th>
+                                    <th className="p-2 text-left">
+                                        Status Denda
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {list.map((item, index) => (
-                                    <tr key={index} className="hover:bg-gray-100 cursor-pointer" onClick={() => handleListClick(item)}>
+                                    <tr
+                                        key={index}
+                                        className="hover:bg-gray-100 cursor-pointer"
+                                        onClick={() => handleListClick(item)}
+                                    >
                                         <td className="p-2">{item.no}</td>
-                                        <td className="p-2">{item.keterangan}</td>
+                                        <td className="p-2">
+                                            {item.keterangan}
+                                        </td>
                                         <td className="p-2">{item.tanggal}</td>
                                         <td className="p-2">{item.nominal}</td>
                                         <td className="p-2">{item.status}</td>
