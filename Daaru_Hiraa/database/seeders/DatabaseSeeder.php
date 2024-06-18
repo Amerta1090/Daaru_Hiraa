@@ -29,6 +29,8 @@ class DatabaseSeeder extends Seeder
             'email' => 'user@gmail.com',
             'password' => '123',
         ]);
+
+        User::factory(10)->create();
         RollCall::factory(20)->create();
         Notification::factory(10)->create();
         Announcement::factory(5)->create();
