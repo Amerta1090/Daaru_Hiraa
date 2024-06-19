@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\NotificationResource;
+use App\Http\Resources\RollCallResource;
+use App\Http\Resources\UserResource;
 use App\Models\Notification;
+use App\Models\RollCall;
 use App\Models\user;
 use App\Http\Requests\StoreuserRequest;
 use App\Http\Requests\UpdateuserRequest;
@@ -23,6 +26,7 @@ class HomeController extends Controller
         
         return inertia('Admin/Index', [
             "notifications" => NotificationResource::collection($notifications),
+            "users" => UserResource::collection(user::all()),
         ]);
     }
 

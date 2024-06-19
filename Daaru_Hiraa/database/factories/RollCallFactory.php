@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -19,6 +20,7 @@ class RollCallFactory extends Factory
         return [
             'user_id' => 2,
             'status' => fake()->randomElement(['Hadir', 'Tidak']),
+            'date' => Carbon::now()->format('Y-m-d'),
         ];
     }
 }
